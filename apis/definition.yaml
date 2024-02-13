@@ -1,15 +1,15 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
 metadata:
-  name: xnopresources.nop.example.org
+  name: xcfgresources.cfg.example.org
 spec:
-  group: nop.example.org
+  group: cfg.example.org
   names:
-    kind: XNopResource
-    plural: xnopresources
+    kind: XCfgResource
+    plural: xcfgresources
   claimNames:
-    kind: NopResource
-    plural: nopresources
+    kind: CfgResource
+    plural: cfgresources
   connectionSecretKeys:
     - test
   versions:
@@ -23,12 +23,7 @@ spec:
             spec:
               type: object
               properties:
-                coolField:
+                data:
                   type: string
               required:
-                - coolField
-            status:
-              type: object
-              properties:
-                coolerField:
-                  type: string
+                - data

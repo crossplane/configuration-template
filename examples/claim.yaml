@@ -1,9 +1,9 @@
-apiVersion: nop.example.org/v1alpha1
-kind: NopResource
+apiVersion: cfg.example.org/v1alpha1
+kind: CfgResource
 metadata:
   namespace: default
   name: simple-example
 spec:
-  coolField: "I'm cool!"
+  data: "I'm cool!"
   compositionRef:
-    name: dummy-composition
+    name: cfg-composition

@@ -1,44 +1,35 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
 metadata:
-  name: dummy-composition
+  name: cfg-composition
 spec:
   compositeTypeRef:
-    apiVersion: nop.example.org/v1alpha1
-    kind: XNopResource
+    apiVersion: cfg.example.org/v1alpha1
+    kind: XCfgResource
   mode: Pipeline
   pipeline:
-    - step: be-a-dummy
+    - step: patch-and-transform
       functionRef:
-        name: crossplane-contrib-function-dummy
+        name: crossplane-contrib-function-patch-and-transform
       input:
-        apiVersion: dummy.fn.crossplane.io/v1beta1
-        kind: Response
-        # This is a YAML-serialized RunFunctionResponse. function-dummy will
-        # overlay the desired state on any that was passed into it.
-        response:
-          desired:
-            composite:
-              resource:
-                status:
-                  coolerField: "I'M COOLER!"
-            resources:
-              nop-resource-1:
-                resource:
-                  apiVersion: nop.crossplane.io/v1alpha1
-                  kind: NopResource
-                  spec:
-                    forProvider:
-                      conditionAfter:
-                        - conditionType: Ready
-                          conditionStatus: "False"
-                          time: 0s
-                        - conditionType: Ready
-                          conditionStatus: "True"
-                          time: 1s
-          results:
-            - severity: SEVERITY_NORMAL
-              message: "I am doing a compose!"
+        apiVersion: pt.fn.crossplane.io/v1beta1
+        kind: Resources
+        resources:
+          - base:
+              apiVersion: kubernetes.crossplane.io/v1alpha2
+              kind: Object
+              spec:
+                forProvider:
+                  manifest:
+                    apiVersion: v1
+                    kind: ConfigMap
+                    metadata:
+                      namespace: default
+            patches:
+              - fromFieldPath: spec.data
+                toFieldPath: spec.forProvider.manifest.data.sample-key
+                type: FromCompositeFieldPath
+            name: resource-0
     - step: detect-readiness
       functionRef:
         name: crossplane-contrib-function-auto-ready
