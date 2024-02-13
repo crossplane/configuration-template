@@ -17,7 +17,7 @@ To build a Configuration package, use the Crossplane CLI:
 crossplane xpkg build
 
 # You can specify various options for the build command, if needed
-crossplane xpkg build --package-root=test-directory --output=test-package.xpkg --examples-root=/test-examples
+crossplane xpkg build --package-root test-directory -o test-package.xpkg --examples-root /examples
 ```
 
 (Optionally) Login to the default xpkg.upbound.io registry:
@@ -27,7 +27,7 @@ crossplane xpkg login
 
 Push the package to a registry:
 ```shell
-crossplane xpkg push test-package.xpkg your-org/your-repo:v1.0.0
+crossplane xpkg pushcrossplane xpkg build --package-root=. --package-file=test-package.xpkg --examples-root=./examples your-org/your-repo:v1.0.0
 ```
 
 More info on the Crossplane CLI can be found [here][xp-cli].
