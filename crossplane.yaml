@@ -18,5 +18,9 @@ spec:
     version: ">=v1.14.1-0"
   # Add your dependencies here
   dependsOn:
-    - configuration: xpkg.upbound.io/crossplane-contrib/provider-nop
+    - provider: xpkg.upbound.io/crossplane-contrib/provider-nop
+      version: "v0.2.1"
+    - function: xpkg.upbound.io/crossplane-contrib/function-dummy
+      version: "v0.2.1"
+    - function: xpkg.upbound.io/crossplane-contrib/function-auto-ready
       version: "v0.2.1"
