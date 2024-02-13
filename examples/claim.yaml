@@ -1,0 +1,9 @@
+apiVersion: nop.example.org/v1alpha1
+kind: NopResource
+metadata:
+  namespace: default
+  name: simple-example
+spec:
+  coolField: "I'm cool!"
+  compositionRef:
+    name: dummy-composition

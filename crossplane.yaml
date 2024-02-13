@@ -13,7 +13,7 @@ metadata:
     meta.crossplane.io/readme: |
       This is where you can add a readme for your configuration.
 spec:
-  # (Optional)Set the version minimal Crossplane that this Configuration is compatible with
+  # (Optional) Set the minimum version of Crossplane that this Configuration is compatible with
   crossplane:
     version: ">=v1.14.1-0"
   # Add your dependencies here
