@@ -1,0 +1,16 @@
+A template for writing a Configuration (https://docs.crossplane.io/v1.14/concepts/packages).
+
+To use this template:
+1. Replace the name, metadata in crossplane.yaml to reflect your Configuration.
+2. Add dependencies in crossplane.yaml
+3. Add your XRD, and Compositions in the `apis/` directory
+4. (Optionally) Add examples in the `examples/` directory
+5. Update the `README.md`, to be about your Configuration!
+
+To build and push your Configuration to a registry, run the following commands
+using the Crossplane CLI:
+
+`crossplane xpgk build`
+`crossplane xpkg push your-org/your-repo:v1.0.0`
+
+Check the README.md for more information and have fun building your Configuration!
