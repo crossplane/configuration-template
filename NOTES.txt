@@ -1,4 +1,4 @@
-A template for writing a Configuration (https://docs.crossplane.io/v1.14/concepts/packages).
+A template for writing a Configuration (https://docs.crossplane.io/latest/concepts/packages).
 
 To use this template:
 1. Replace the name, metadata in crossplane.yaml to reflect your Configuration.
