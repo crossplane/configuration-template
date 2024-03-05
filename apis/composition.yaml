@@ -15,7 +15,8 @@ spec:
         apiVersion: pt.fn.crossplane.io/v1beta1
         kind: Resources
         resources:
-          - base:
+          - name: resource-0
+            base:
               apiVersion: kubernetes.crossplane.io/v1alpha2
               kind: Object
               spec:
@@ -26,10 +27,6 @@ spec:
                     metadata:
                       namespace: default
             patches:
-              - fromFieldPath: spec.data
+              - type: FromCompositeFieldPath
+                fromFieldPath: spec.data
                 toFieldPath: spec.forProvider.manifest.data.sample-key
-                type: FromCompositeFieldPath
-            name: resource-0
-    - step: detect-readiness
-      functionRef:
-        name: crossplane-contrib-function-auto-ready

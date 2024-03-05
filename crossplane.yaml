@@ -1,4 +1,4 @@
-apiVersion: meta.pkg.crossplane.io/v1alpha1
+apiVersion: meta.pkg.crossplane.io/v1
 kind: Configuration
 metadata:
   name: your-configuration
@@ -19,8 +19,6 @@ spec:
   # Add your dependencies here
   dependsOn:
     - provider: xpkg.upbound.io/crossplane-contrib/provider-kubernetes
-      version: "v0.11.4"
+      version: "v0.12.1"
     - function: xpkg.upbound.io/crossplane-contrib/function-patch-and-transform
       version: "v0.3.0"
-    - function: xpkg.upbound.io/crossplane-contrib/function-auto-ready
-      version: "v0.2.1"
